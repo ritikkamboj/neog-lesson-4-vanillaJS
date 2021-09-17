@@ -47,6 +47,12 @@ function jai()
 
 btnTranslate.addEventListener("click",  jai);
 
+
+//for more API practice use below link 
+// https://github.com/tanaypratap/teamtanay.jobchallenge.dev/issues/232
+
+
+
 // console.log(output.innerHTML);
 
 // const output2=document.querySelector("#txt-output");
