@@ -14,13 +14,34 @@ var input=document.querySelector("#txt-input");
 
 // console.log(d);
 var output= document.querySelector("#txt-output");
+// var serverURL="https://lessonfourapi.tanaypratap.repl.co/translate/yoda.json"
+var serverURL="https://api.funtranslations.com/translate/minion.json"
 
+
+
+function errorHandler(error)
+{
+    return ("your error is "+ error);
+    alert("some thing wrong with server , Try after some time ");
+}
+function getTranslatedURL(text)
+{
+    return (serverURL+"?text="+text);
+}
 function jai()
 {
     // console.log("jai baabe ki");
     // console.log("yeh pahad tod rakhe hai tumne :" + input.value );
     // console.log()
-    output.innerHTML="pee popo poooo laa :" + input.value;
+    // output.innerHTML="pee popo poooo laa :" + input.value;
+    var inputF=input.value;
+    fetch(getTranslatedURL(inputF))
+    .then(response => response.json())
+    .then(json=> {
+        var translatedText=json.contents.translated;
+            output.innerHTML=translatedText})
+        // console.log(json.contents.translated))
+    .catch(errorHandler)
     // console.log(output.innerHTML);
 }
 
